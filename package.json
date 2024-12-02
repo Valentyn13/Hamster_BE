@@ -7,7 +7,11 @@
     "start": "node dist/index.js",
     "dev": "nodemon ./src/index.ts",
     "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:type": "npx tsc --noEmit",
+    "prettier": "prettier --write \"**/*.{ts,tsx,json,md,scss,html,yml}\"",
+    "lint:editor": "editorconfig-checker",
+    "lint:commit": "yarn run lint:fix && yarn run lint:type && yarn run lint:editor && yarn run prettier"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +31,8 @@
     "@eslint/js": "^9.15.0",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
+    "editorconfig": "^2.0.0",
+    "editorconfig-checker": "^6.0.0",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.31.0",
