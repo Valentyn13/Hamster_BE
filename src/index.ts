@@ -10,8 +10,9 @@ import helmet from 'helmet';
 import { cardsData } from './constants/cardParams';
 import connectDb from './db/connection';
 import Card from './models/card.model';
+import AppRouter from './routes';
+import { getRandomBrightColor } from './utils/helpers/rundomHexColor';
 import { generateCardStats } from './utils/math';
-import { getRandomBrightColor } from './utils/rundomHexColor';
 
 dotenv.config();
 
@@ -28,6 +29,9 @@ app.use(cors());
 
 connectDb();
 
+const router = new AppRouter(app);
+
+router.init();
 const ASSET_FOLDER = path.join(__dirname, 'assets');
 
 app.get('/', async (req: Request, res: Response) => {
