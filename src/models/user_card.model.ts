@@ -16,6 +16,6 @@ const userCardShema = new Schema({
   },
 });
 
-const Test = model('user_card', userCardShema);
+const UserCard = model('user_card', userCardShema);
 
-export default Test;
+export default UserCard;

@@ -58,6 +58,6 @@ const userShema = new Schema({
   },
 });
 
-const Test = model('User', userShema);
+const User = model('User', userShema);
 
-export default Test;
+export default User;

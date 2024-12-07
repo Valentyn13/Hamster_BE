@@ -1,0 +1,217 @@
+import { calculateCost, calculateProfit, calculateCostSqrt, calculateProfitSqrt } from '../utils/math/algorithms';
+
+// Функции для карт:
+const cardsData = [
+  {
+    title: 'Fashion Show',
+    description: 'Hamsters strut their stylish outfits!',
+    cost: (level: number) => calculateCost(200, level, 1.3),
+    profit: (level: number) => calculateProfit(60, level, 1.6),
+  },
+  {
+    title: 'Gold Stablecoin',
+    description: 'Secure hamster wealth with gold backing.',
+    cost: (level: number) => calculateCost(300, level, 1.4),
+    profit: (level: number) => calculateProfit(40, level, 1.5),
+  },
+  {
+    title: 'Trading Inspector',
+    description: 'Ensure fair trades in hamster markets.',
+    cost: (level: number) => calculateCost(400, level, 1.1),
+    profit: (level: number) => calculateProfit(50, level, 1.3),
+  },
+  {
+    title: 'Bitcoin Pizza Day',
+    description: 'Celebrate with tasty crypto-themed pizza.',
+    cost: (level: number) => calculateCost(1000, level, 1.5),
+    profit: (level: number) => calculateProfit(255, level, 1.8),
+  },
+  {
+    title: 'Business Jet',
+    description: 'Fly hamsters to exclusive stock meetings.',
+    cost: (level: number) => calculateCost(500, level, 1.6),
+    profit: (level: number) => calculateProfit(60, level, 1.5),
+  },
+  {
+    title: 'AirDrop Cannon',
+    description: 'Launch crypto rewards to hamster fans!',
+    cost: (level: number) => calculateCost(600, level, 1.7),
+    profit: (level: number) => calculateProfit(70, level, 1.6),
+  },
+  {
+    title: 'Beach Roller',
+    description: 'Relaxing investments with a tropical vibe.',
+    cost: (level: number) => calculateCost(700, level, 1.8),
+    profit: (level: number) => calculateProfit(90, level, 1.7),
+  },
+  {
+    title: 'Bull Market',
+    description: 'Hamsters profit during bullish trends.',
+    cost: (level: number) => calculateCost(800, level, 1.9),
+    profit: (level: number) => calculateProfit(120, level, 1.8),
+  },
+  {
+    title: 'Business Unit',
+    description: 'Collaborative ventures for hamster moguls.',
+    cost: (level: number) => calculateCost(900, level, 2.0),
+    profit: (level: number) => calculateProfit(400, level, 1.5),
+  },
+  {
+    title: 'Crypto Rally',
+    description: 'Hamsters race to crypto supremacy!',
+    cost: (level: number) => calculateCost(1000, level, 2.1),
+    profit: (level: number) => calculateProfit(300, level, 2.0),
+  },
+  {
+    title: 'Defi Integration',
+    description: 'Hamsters explore decentralized finance.',
+    cost: (level: number) => calculateCostSqrt(100, level, 1.5),
+    profit: (level: number) => calculateProfitSqrt(20, level, 2.5),
+  },
+  {
+    title: 'Dev Culture',
+    description: 'Build the next hamster-friendly app.',
+    cost: (level: number) => calculateCostSqrt(200, level, 2.0),
+    profit: (level: number) => calculateProfitSqrt(50, level, 1.8),
+  },
+  {
+    title: 'River Dreams',
+    description: 'Tranquil investments for steady growth.',
+    cost: (level: number) => calculateCostSqrt(150, level, 1.3),
+    profit: (level: number) => calculateProfitSqrt(30, level, 1.5),
+  },
+  {
+    title: 'Exchange Boss',
+    description: 'Command hamster trading platforms.',
+    cost: (level: number) => calculateCostSqrt(300, level, 2.5),
+    profit: (level: number) => calculateProfitSqrt(40, level, 1.1),
+  },
+  {
+    title: 'Deep Treasure',
+    description: 'Discover hidden crypto riches.',
+    cost: (level: number) => calculateCostSqrt(250, level, 1.7),
+    profit: (level: number) => calculateProfitSqrt(60, level, 1.7),
+  },
+  {
+    title: 'Fantasy Hamstert',
+    description: 'A magical world of hamster ventures.',
+    cost: (level: number) => calculateCostSqrt(400, level, 3.0),
+    profit: (level: number) => calculateProfitSqrt(111, level, 2.5),
+  },
+  {
+    title: 'Crypto Crash',
+    description: 'Survive market drops with hamster wit.',
+    cost: (level: number) => calculateCostSqrt(120, level, 1.1),
+    profit: (level: number) => calculateProfitSqrt(25, level, 1.0),
+  },
+  {
+    title: 'Green Tech',
+    description: 'Hamster-friendly, eco-conscious investing.',
+    cost: (level: number) => calculateCostSqrt(90, level, 1.0),
+    profit: (level: number) => calculateProfitSqrt(35, level, 0.8),
+  },
+  {
+    title: 'Hamstalorian',
+    description: 'Epic hamster journeys through markets.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Hamster Policeman',
+    description: 'Enforce order in the hamster markets.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'ICO King',
+    description: 'Dominate hamster Initial Coin Offerings.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Young Trader',
+    description: 'Rising star of the hamster trading world.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Liquidity Crisis',
+    description: 'Manage hamster funds during tough times.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Main Boss',
+    description: 'Rule the hamster business empire.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Market Manipulator',
+    description: 'Strategize to influence hamster markets.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Private Investor',
+    description: 'Fund exclusive hamster ventures.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Social Trading',
+    description: 'Hamsters share strategies for success.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Crypto Spaceship',
+    description: 'Launch hamsters to crypto stardom.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Sumo Hamsters',
+    description: 'Giant hamsters battle for crypto glory.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Sushi Picnic',
+    description: 'Relax and trade at a sushi feast.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Florist Hamster',
+    description: 'Grow profits with a floral twist.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Horror Worlds',
+    description: 'Deep nightmares for hamster investors.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Street Racers',
+    description: 'Start your incredible journey with street racers.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Joe Rogan Podcast',
+    description: 'Take part in the most popular podcast in the world.',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+  {
+    title: 'Two Chairs',
+    description: 'Durov`s challange (мать жива)?',
+    cost: (level: number) => calculateCostSqrt(1000, level, 4.0),
+    profit: (level: number) => calculateProfitSqrt(260, level, 3.6),
+  },
+];
+
+export { cardsData };
